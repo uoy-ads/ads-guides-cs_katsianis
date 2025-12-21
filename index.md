@@ -1,0 +1,701 @@
+# Preparing the Paliambela Kolindros Archaeological Project digital archive for long term preservation
+
+2012, Archaeology Data Service.
+
+*This case study was produced as a component of a two week work placement during March 2012 at the ADS funded by the Archaeology in Contemporary Europe ([ACE](http://www.ace-archaeology.eu/)) mobility bursary scheme.*
+
+*Images are copyright the Paliambela Kolindros Archaeological Project.*
+
+All material in this guide is available [open access](https://archaeologydataservice.ac.uk/about/policies/use-access-to-data/) under a CC-BY 4.0 licence.
+
+```{image} ads_logo.png
+:height: 50px
+:align: left
+:alt: ADS Logo
+```
+
+```{image} /images/ACE.png
+:height: 50px
+:align: left
+:alt: 
+```
+
+```{image} /images/auth_logo.png
+:height: 50px
+:align: left
+:alt: 
+```
+
+## 1 Introduction
+
+The creation and management of the digital archive of the Paliambela Kolindros Archaeological Project is based upon GIS technology. It comprises a complex archive that incorporates a large sum of information held in different data types. As part of the exchange of expertise between the ADS (Archaeological Data Service) and AUTh (Aristotle University Thessaloniki, Greece) in the framework of ACE (Archaeology in Contemporary Europe, Professional Practices and Public Outreach) Network, it was decided to explore the possibilities of using part of the archive to indicate potential problems and define necessary procedures required to prepare data from complex archaeological information systems for long-term digital data preservation.
+
+## 2 The Information System
+
+The application that manages the Paliambela Kolindros digital archive is the result of a research project entitled *Digital System for the Interactive Visualization and Spatio-temporal Interpretation of Archaeological Data*, which was launched in November 2005 and was concluded by early 2009. Funding was provided by the Greek Ministry of Development - General Secretariat for Research and Technology under the EU Operational Programme "Competitiveness", Measure 8.3, Action 8.3.1: Researchers Support Program 2003. This research focused on the digital management of archaeological information through the combination of GIS technology and three-dimensional (3D) cartographic representation. The archaeological excavation project at the prehistoric site of Paliambela Kolindros provided the case study.
+
+The resulting application uses ESRI's ArcGIS for the management, processing, visual exploration, spatial analysis and aggregation of excavation data. The backbone of the application is the spatial database[^1], which follows the architecture of ESRI’s Personal Geodatabase (pGDB) coupled with the use of MS Access. The database supports the storage of the geometrical, descriptive and chronological data providing grouping mechanisms and further capacities for adding secondary information during the course of stratigraphic analysis (Fig. 1).
+
+```{figure} /images/01.jpg
+:alt: Figure 1
+
+__Figure 1:__ Example of the Geodatabase schema.
+```
+
+Primary data input is facilitated through recording forms accessed from within the MS Access environment (Fig. 2). A series of surveying methods that include photogrammetry techniques allow for direct collection of spatial measurements. All primary spatial data are processed to form the 3D geometry of each excavation feature, which is then embedded in the database. In many cases data processing is a relatively simple process (e.g. finds depicted as 3D points), while in others various intermediate procedures are included (e.g. drawings as 3D lines draped over a 2.5D surface). More complex geometric objects (e.g. excavation features) involve intermediate transformation processes using other 3D modelling applications (e.g. Google SketchUp) (Fig.3). Once the geometry is stored in a database every spatial object is linked to all related descriptive information. Using the three-dimensional visualization environment of ArcGIS (ArcScene), all data can be retrieved, visualized, explored and aggregated (Fig. 4).
+
+The contents of the spatial database follow the semantic model CIDOC-CRM (ISO 21127), which has been implemented using stereotypes during the design stage of the data schema. This implementation was meant to provide the ability to export the data schema and all data in a codified format (i.e. XML) without loss of meaning (CIDOC-CRM export compatible). In addition, all spatial data collections have been complemented with geographical metadata that follow the ISO19115 standard to facilitate potential incorporation of the excavation archive contents into wider geographic data repositories on the Web. In both cases, the aim was primarily to integrate the metadata within the dataset in an attempt to ensure future compatibility and interoperability and also to document the data structure of the system [@katsianis2012; @katsianis2008].
+
+```{figure} /images/02.jpg
+:alt: Figure 2
+
+__Figure 2:__ Example of an MS Access data input form (Excavation Unit Sheet).
+```
+
+```{figure} /images/03.jpg
+:alt: Figure 3
+
+__Figure 3:__ Spatial data classes included in the database: 1. *Finds and samples* as 3D points, 2. *Drawings* as 3D lines, 3. *Features* as multipatch surfaces, 4. *Excavation units* as closed multipatch entities, 5. *Section layers* as vertical multipatch surfaces, 6. *Excavation unit sections* as 3D polygons, 7. *Elevation* as Grids and TINs, 8. *Plan orthophotomosaics* as Geotiff images that receive height values from the underlying Grids, and 9. *Section drawings and mosaics* as Geotiff images that receive height values from the underlying TINs.
+```
+
+```{figure} /images/04.jpg
+:alt: Figure 4
+
+__Figure 4:__ Example of data visualization and selection in the native ArcScene environment.
+```
+
+More information regarding the archaeological program and the information system can be found in http://temper.web.auth.gr.
+
+## 3 The Dataset
+
+The original dataset comprises all information gathered during fieldwork and post-excavation analysis from the Paliambela Kolindros archaeological project. The dataset on which this case study is based is part of the original digital archive of the project. It comprises all evidence collected and digitised so far within excavation area 9 (Fig. 5). The database in its current form incorporates the information shown in Table 1[^2]. This information has been exported using the Geodatabase reporter.NET 9.2. The E-R diagram of the GDB was produced using the Geodatabase diagrammer for ArcGIS 9.0. Obviously when in MS Visio, it was re-arranged manually to enhance readability. Both scripts are free to download from the ESRI website.
+
+```{figure} /images/05.jpg
+:alt: Figure 5
+
+__Figure 5:__ Case study data from Trench 9.
+```
+
+```{list-table} __Table 1__ Data report of Paliambela Kolindros excavation archive
+:header-rows: 1
+
+* - D A T A    R E P O R T
+  - 
+* - Schema Creation
+  - 
+* - Creation Date
+  - 2012-03-12 11:30:57
+* - __System Information__
+  - 
+* - Operating System
+  - Microsoft Windows XP SP2
+* - .Net Framework
+  - 1.1.4322.2407
+* - Reporter
+  - 1.0.1743.32643
+* - __Database Information__
+  - 
+* - Database Name
+  - ArchaeoGDB
+* - Database Size
+  - 32.2 MB
+```
+
+```{list-table}
+:header-rows: 1
+
+* - Feature Dataset: ExcavationData
+  -  
+  -  
+  -  
+  -  
+  -  
+  - 
+* - __ObjectClass Name__
+  - Type
+  - Geometry
+  - Subtype
+  - Case/Total
+  - Extent
+  - Snapshot
+* - Drawings
+  - Simple FeatureClass
+  - Polyline
+  - 
+  - 31/217
+  - 3210.1200100175 3305.6811382607 -26734.872039037 -26650.105803250
+  - <img src="/images/table1.jpg" alt="table1">
+* - ExcavationUnits
+  - Simple FeatureClass
+  - Multipatch
+  - 
+  - 198/2421
+  - 3210.0000021187 3305.5450021832 -26738.920002345 -26650.000002677
+  - <img src="/images/table2.jpg" alt="table2">
+* - Features
+  - Simple FeatureClass
+  - Multipatch
+  - 
+  - 3/69
+  - 3210.3852832830 3305.4345985484 -26735.000002759 -26650.636000536
+  - <img src="/images/table3.jpg" alt="table3">
+* - Finds
+  - Simple FeatureClass
+  - Point
+  - 
+  - 137/2130
+  - 3210.0399977667 3305.3299993816 -26734.820001388 -26650.170001643
+  - <img src="/images/table4.jpg" alt="table4">
+* - Samples
+  - Simple FeatureClass
+  - Point
+  - 
+  - 177/2197
+  - 3210.0000021187 3305.4000022430 -26735.200001953 -26650.000002677
+  - <img src="/images/table5.jpg" alt="table5">
+* - SectionLayers
+  - Simple FeatureClass
+  - Multipatch
+  - 
+  - 20/73
+  - 3242.4201698635 3305.5091835169 -26735.000002759 -26651.899998521
+  - <img src="/images/table6.jpg" alt="table6">
+* - SectionUnits
+  - Simple FeatureClass
+  - Polygon
+  - 
+  - 30/244
+  - 3210.0000031287 3300.0000030268 -26735.000002759 -26652.000001611
+  - <img src="/images/table7.jpg" alt="table7">
+* - SiteTrenches
+  - Simple FeatureClass
+  - Polyline
+  - 
+  - 1/39
+  - 3210.0000021187 3305.4999983480 -26735.000002759 -26650.000002677
+  - <img src="/images/table8.jpg" alt="table8">
+```
+
+```{list-table}
+:header-rows: 1
+
+* - Stand Alone ObjectClass(s)
+  -  
+  -  
+  -  
+  -  
+  -  
+  - 
+* - ObjectClass Name
+  - Type
+  - Geometry
+  - Subtype
+  - Case/Total
+  - Extent
+  - Snapshot
+* - AnimalBone
+  - Table
+  - 
+  - 
+  - 216/1453
+  - No Extent
+  - 
+* - AnimalBoneSpecies
+  - Table
+  - 
+  - 
+  - 590/3260
+  - No Extent
+  - 
+* - BuildingMaterial
+  - Table
+  - 
+  - 
+  - 0/116
+  - No Extent
+  - 
+* - BuildMaterialFragments
+  - Table
+  - 
+  - 
+  - 0/174
+  - No Extent
+  - 
+* - Domains
+  - Table
+  - 
+  - 
+  - 0/581
+  - No Extent
+  - 
+* - Drawing
+  - Table
+  - 
+  - 
+  - 13/96
+  - No Extent
+  - 
+* - ExcavationLayer
+  - Table
+  - 
+  - 
+  - 0/19
+  - No Extent
+  - 
+* - ExcavationUnit
+  - Table
+  - 
+  - 
+  - 238/2994
+  - No Extent
+  - 
+* - ExcavationUnitInclusions
+  - Table
+  - 
+  - 
+  - 700/6842
+  - No Extent
+  - 
+* - ExcavationUnitSpatialCoords
+  - Table
+  - 
+  - 
+  - 945/12430
+  - No Extent
+  - 
+* - Feature
+  - Table
+  - 
+  - 
+  - 3/123
+  - No Extent
+  - 
+* - FeatureGroup
+  - Table
+  - 
+  - 
+  - 0/0
+  - No Extent
+  - 
+* - FeatureSpatialCoords
+  - Table
+  - 
+  - 
+  - 1/201
+  - No Extent
+  - 
+* - Find
+  - Table
+  - 
+  - 
+  - 539/6255
+  - No Extent
+  - 
+* - FindSpatialCoords
+  - Table
+  - 
+  - 
+  - 154/2130
+  - No Extent
+  - 
+* - FlotationSample
+  - Table
+  - 
+  - 
+  - 188/2289
+  - No Extent
+  - 
+* - HumanRelic
+  - Table
+  - 
+  - 
+  - 0/0
+  - No Extent
+  - 
+* - MagSusSample
+  - Table
+  - 
+  - 
+  - 83/865
+  - No Extent
+  - 
+* - MarineShell
+  - Table
+  - 
+  - 
+  - 226/2340
+  - No Extent
+  - 
+* - MarineShellSpecies
+  - Table
+  - 
+  - 
+  - 613/6417
+  - No Extent
+  - 
+* - Photograph
+  - Table
+  - 
+  - 
+  - 55/646
+  - No Extent
+  - 
+* - PhysicalRelations
+  - Table
+  - 
+  - Feature:0/71; Excavation Unit: 283/4873
+  - 283/4944
+  - No Extent
+  - 
+* - Pottery
+  - Table
+  - 
+  - 
+  - 230/2744
+  - No Extent
+  - 
+* - PotteryChronology
+  - Table
+  - 
+  - 
+  - 289/1549
+  - No Extent
+  - 
+* - PotteryTechnology
+  - Table
+  - 
+  - 
+  - 1/80
+  - No Extent
+  - 
+```
+
+```{list-table}
+:header-rows: 1
+
+* - ObjectClass Name
+  - Type
+  - Geometry
+  - Subtype
+  - Case/Total
+  - Extent
+  - Snapshot
+* - ProjectTeamMember
+  - Table
+  - 
+  - 
+  - 25/25
+  - No Extent
+  - 
+* - RecordSample
+  - Table
+  - 
+  - 
+  - 170/1107
+  - No Extent
+  - 
+* - ResidueSample
+  - Table
+  - 
+  - 
+  - 116/1574
+  - No Extent
+  - 
+* - ResidueSampleContents
+  - Table
+  - 
+  - 
+  - 492/7807
+  - No Extent
+  - 
+* - Sample
+  - Table
+  - 
+  - Flotation Sample:0/2280; Record Sample:0/7; Special An. Sample:17/98; Sp. Flot. Sample:0/6
+  - 205/2391
+  - No Extent
+  - 
+* - SampleSpatialCoords
+  - Table
+  - 
+  - 
+  - 180/2404
+  - No Extent
+  - 
+* - SectionLayer
+  - Table
+  - 
+  - 
+  - 11/77
+  - No Extent
+  - 
+* - SectionLayerInclusions
+  - Table
+  - 
+  - 
+  - 21/21
+  - No Extent
+  - 
+* - SiteTrench
+  - Table
+  - 
+  - 
+  - 1/29
+  - No Extent
+  - 
+* - SiteTrenchAnnualSummary
+  - Table
+  - 
+  - 
+  - 4/8
+  - No Extent
+  - 
+* - StratigraphicLayer
+  - Table
+  - 
+  - 
+  - 7/18
+  - No Extent
+  - 
+* - StratigraphicLayerGroup
+  - Table
+  - 
+  - 
+  - 0/2
+  - No Extent
+  - 
+* - StratigraphicPhase
+  - Table
+  - 
+  - 
+  - 0/0
+  - No Extent
+  - 
+* - StratigraphicRelations
+  - Table
+  - 
+  - Feature:0/10; Feature Group:0/0; Strat. Layer:0/3; Group Layer:0/4
+  - 0/17
+  - No Extent
+  - 
+* - Timestamps
+  - Table
+  - 
+  - Excavation Unit:73/830; Sample:0/0; Find:0/5; Strat. Layer:0/0; Group Layer:0/5; Feature:0/0; Group Feature:0/0
+  - 73/850
+  - No Extent
+  - 
+* - TrenchSection
+  - Table
+  - 
+  - 
+  - 4/56
+  - No Extent
+  - 
+```
+
+## 4 Migration Strategies and Available Formats
+
+Preparing an ESRI Geodatabase (GDB) for preservation is far from a simple issue. Recently, attempts have been made in the framework of the GeoMAPP (Geospatial Multistate Archive and Preservation Partnership) to evaluate current formats and migration strategies in order to promote guidelines that can overcome potential archival challenges[^3].  After a series of tests regarding the efficiency of the export tools offered by ESRI and other parties, a number of conclusions were reached:
+
+* __Open vector formats__ for geospatial data such as the Spatial Data Transfer Standard (SDTS) and Geography Markup Language (GML) lack the capacities to handle complex geometries or the existing variety of data schemas, while both are not widely supported.
+* __Personal Geodatabases__ (pGB) are not ideal for preservation as they are proprietary formats (requirements for ArcGIS and MS Access licensing). They present a 2 Gb storage limit being insufficient as a means for content exchange and storage. Also, there is a stated preference by ESRI for the File Geodatabase type, increasing potential for the eventual discontinuation of pGBs. However, many prefer to use them, because of the extra table and attribute handling operations they can perform from within MS Access (i.e. creation of data input forms from within Access as in our case). A pGDB can be exported into XML, fGDB or shapefiles.
+* __File Geodatabases__ (fGDB) is the new cross-platform standalone spatial database format promoted by ESRI. Despite its evident advantages (portability, platform independence, improved performance, scalability, large dataset support), there hasn’t been so far an open specification (as in the case of shapefiles) and access to data is achieved only through ArcGIS & ArcCatalog. However, recently (June 2011) the fGDb API was released opening access to the format for non-ESRI applications, paving the road towards its potential longevity, further development and standardization. For example the Kentucky KYGEONET has decided to proceed with using fGDB as an archival format [@essic2009]. A fGDB can be exported into XML, shapefiles or GML.
+* __ArcSDE Geodatabases__ depend on the proprietary format of the underlying SDE package (i.e SQL server, Oracle). They cannot be archived as a stand-alone snapshot objects and require migration to some other format. ArcSDE GDBs can be exported into XML, fGDB or shapefiles.
+* __Shapefiles__ are considered a very stable format, with added functionality over the years through the creation of 'sidecar files' (i.e. files that are added to the core set of files making up the shapefile format). A basic problem is the use of DBF format for storing descriptive information, which presents column name limits, field length limits and supports only English text.
+* __GML__ does not seem to be able to handle multipatch information as yet, at least when used in combination with the ArcGIS interoperability tool. As a test, a multipatch M feature class (Features) was exported into GML format (GML SF-0 - Geography Markup Language Simple Features Level SF-0 Profile) and the procedure seemed to work fine, however, when the GML file was re-imported into a Geodatabase to be opened within ArcScene conversion had created a polyline Z feature class, rather than a multipatch feature class. Making the same conversion after having exporting the feature class into a multipatch shapefile resulted in the same polyline Z feature class (Fig.6). In this sense, GML cannot as yet be considered a suitable format for archiving complex geometry data types held in GDBs.
+
+```{figure} /images/06-1.png
+:alt: Figure 6-1
+```
+```{figure} /images/06-2.png
+:alt: Figure 6-2
+
+__Figure 6:__ Conversion of mutlipatch M feature class to GML and resulting re-imported feature class as polyline Z.
+```
+
+## 5 Geodatabase Conversion Options
+
+It seems that any attempt to archive an ArcSDE GDB or a pGDB as a stand-alone object implicates the migration to fGDB. As stated earlier, this option can allow the upgrade and usability of a certain dataset with minimal loss of information (since relationships, user defined domain values and subtypes are kept). By far the easiest way to proceed in such a migration is the use of XML workspace documents[^4]. These allow for the export of both GDB schema and contained data and the re-assemblage of the database in different GDB types. It also allows for the transfer of all metadata stored in relation to the data schema. Unfortunately, such a migration strategy is reported to introduce increased chances of failure when conversions to higher ArcGIS versions are attempted (that is when intermediate releases are jumped) [@geomapp2011a, 7-9]. 
+
+The GeoMAPP project concluded that fGDBs are the most appropriate archival format on the basis that it can support the advanced features of a GDB (i.e. relationships, domain values etc), which cannot be handled by the shapefile format. It also seems to be the most promising in terms of ESRI support, attaining long-term usability and potential for becoming a standard. The use of shapefiles in the process of splitting a GDB into its components is recommended as an additional supplementary way of preserving information held within a GDB.
+
+### 5a. Converting the pGDB using an XML workspace document
+
+The database was created in ArcGIS 9.1, a release that did not support fGDBs. Trying to export the database schema using ArcGIS 9.3 with all data included was unsuccessful. The process seemed to work fine but was finally aborted returning the error message “failed to open raster dataset”. This was an unexpected error as there were no raster datasets kept within the original pGDB[^5]! It should be noted that in the past and using ArcGIS 9.1 such a process worked without any problem resulting in an XML document containing both schema and data. The inability then to export both data and schema might be related to a native versioning incompatibility problem of ArcGIS.
+
+This is further supported by the next test that tried to import an XML pGDB schema created using ArcGIS 9.1 into an empty fGDB created in ArcGIS 9.3. The process was unsuccessful pointing to changes between different XML workspace document format versions.
+
+The only alternative was to export the pGDB schema into an ArcGIS 9.3 XML and see if that could be implemented within an empty fGDB. The process worked, as both schema export and import processes worked resulting in an empty fGDB that duplicates the original schema. It must be also noted that original geographic metadata were included in the export and were successfully transferred to the new classes in the target fGDB. On the other hand, CIDOC-CRM metadata were not extracted[^6]. 
+
+Following the schema duplication process data can be imported into the new database using the import functions of ArcCatalog or other methods, such as loading data within an ArcMap editing session. In our case, further problems arose during attempts to import data, as from within ArcCatalog the process was not even initiated, returning instead the message '''cannot load into non simple data'''. Loading data through ArcMap is possible, but must be done on a class by class basis, resulting in effort and time intensive procedures.
+
+Overall, it seems that transferring the data from a pGDB into an fGDB is not straightforward and has to take into account versioning problems, especially with relation to the XML workspace document format. A possible suggestion would be to export the schema of the pGDB and if possible the data as well (depending on the availability of the appropriate ArcGIS version) in XML format and also create a new fGDB incorporating the XML schema (even if it does not contain data) so as to preserve at least the data structure and explore other potential options for the future migration of the entire dataset (i.e. perhaps through intermediate files such as shapefiles and tables). Even in this case, though, the MS Access components (i.e. data input forms) would be eventually lost, as stated earlier.
+
+### 5b.  Breaking up the pGDB into individual components for archiving
+
+This strategy obviously fails to preserve the complex elements held within a pGDB (i.e. relationships). However, it reflects an emphasis on data preservation rather than the look and feel of a stand-alone application. The advantages are related to the stability of preservation formats used (i.e. shapefile, GeoTIFF etc) and the capacity for easier information dissemination. All advanced features held in a GDB can be documented providing the potential user with a “manual” for properly re-assembling the individual components[^7].
+
+In addition, one has to take into account the fact that complex applications, such as this case study, only account for a small fraction of the overall data created and deposited as simple GIS files in general (at least when it comes to the archaeology and heritage sector). Bearing this in mind, the ADS encourages the deposition of GIS datasets into individual meaningful components that are accompanied by metadata information and can be easily archived and disseminated using stable formats.
+
+ It was decided to explore this strategy further in order to indicate potential problems and define the necessary procedures required to prepare the data from complex GDBs for long-term digital preservation. The results of the process are presented in separate groups according to the individual data types held within or outside the original pGDB: 
+
+__Feature classes__
+
+The geometry of each excavation feature is held within a feature dataset that ensures that all contained feature classes share the same projection and spatial extent. Feature classes can contain Z and M values (i.e. contain 3D and/or multipart objects). The representation of the geometry uses points, lines, polygons and multipatch  data types depending on the excavation feature (i.e. finds are depicted as 3D points while excavation units as 3D closed multipatch[^8] objects). In this sense, this GDB contains probably the most complex vector data types supported by ArcGIS.
+
+However, extracting the feature classes from the GDB into shapefiles is a straightforward process. The type of geometry supported by a GDB is also supported by the shapefile format. Extraction of feature classes into shapefiles can be performed from ArcCatalog, from within ArcMap or even using the Arctoolbox. Problems arise when geographical metadata are involved that should be kept in the resulting files. Originally, for each feature class geographic metadata were implemented using the metadata wizard in ArcGIS 9.1. These cannot be exported alongside the data from the file, unless the conversion is made from within ArcCatalog.
+
+This type of export allows the new shapefiles to keep the metadata that were inserted in the original feature classes. It would have been possible to implement the metadata at a later stage either by exporting the metadata into SGML and importing them to the shapefiles or by typing them using the metadata editing tools of ArcCatalog. However, in this case it appears that the tool that implements the ISO19115 metadata in ArcCatalog has been discontinued, while the ISO19115 metadata profile currently in use in ArcCatalog has been differentiated. So, although the metadata at the time of creation were certainly compatible with ISO19115, this may not be the case four years down the road. Having used the export though, it was possible to keep the original metadata in the new shapefiles, which in every case provides a good level of information on their objective and use (Fig.7).
+
+```{figure} /images/07.png
+:alt: Figure 7
+
+__Figure 7:__ Extracting feature classes into shapefiles from ArcCatalog.
+```
+
+A distinct mention has to be made with respect to the ''Drawings'' feature class. Drawings are produced as individual shapefiles, which are then fed into the drawings feature class. However, in order to limit the number of entries in the database, individually digitized features are previously dissolved into multi-part entities based on the type of artifact they represent (i.e. stones). The dissolved shapefiles then receive Z values from individual DTMs and are then imported into the database. Although this is a specific process related to this project and was decided to increase the efficiency of the database, it is highly advisable to keep the original shapefiles before any geoprocessing process (feature dissolving or Z value provision), as this can allow the restructuring of a drawing, should this is required in the future. 
+
+Another thing to keep in mind is that shapefiles do not support real curves. It seems that during export all curves are replaced by edge lines and vertices. This was obvious in the case of the feature class ''Features'', whose components are created in SketchUp, smoothed and imported as multipatch objects in the respective feature class. As objects of the database they keep the smoothed out surfaces, but when exported into shapefiles, this smoothness is lost (Fig.8). This is an obvious disadvantage in the sense that the intended smoothed representation is degraded, while there is no way of knowing whether the actual calculation of the edges is more precise or further decreases the original accuracy (that is before smoothing each object in SketchUp). In our case, this transformation does not affect the indented accuracy for our representation and analytic purposes.
+
+```{figure} /images/08-1.png
+:alt: Figure 8-1
+```
+```{figure} /images/08-2.png
+:alt: Figure 8-2
+
+__Figure 8:__ Comparison of curved object geometry in feature class and shapefile format respectively.
+```
+
+__Object Classes__
+
+Exporting the tables was not an easy task either. Most object classes contain complex field types and different character sets as they incorporate Greek and/or English. Export from ArcCatalog into DBF results in serious loss of information, especially when languages other than English are used. It was far better to export the data from within MS Access into XSLX. CSV migration has been problematic as it appears that it cannot be read by ArcMap. However, from version 9.3 onwards it is possible to insert an XLSX table in ArcMap and join it to a shapefile. It is suggested therefore that XLSX provides a better preservation and dissemination format for GIS usage (at least when it comes to ArcGIS). Also, the use of the ADStoolkit to export the database tables provided an automated and easy process. However, it couldn’t convert Greek characters or handle complex information (i.e. blob data). In this sense, its use was inappropriate. 
+
+Another detail to bear in mind is that any conversion into DBF or XLSX formats loses the subtype domain attribute text as well as blob data types. This also stands for feature classes containing subtype domain fields when converted to shapefiles (Fig.9).  
+
+```{figure} /images/09-1.png
+:alt: Figure 9-1
+```
+```{figure} /images/09-2.png
+:alt: Figure 9-2
+
+__Figure 9:__ Attribute text in subtype domain fields is lost upon conversion (after Essic [-@essic2011]).
+```
+
+Originally, each object class was also populated with geographic metadata using the metadata wizard in ArcGIS 9.0. Obviously if conversion is made through MS Access, it fails to keep related geographic metadata, which nevertheless can be exported in XML. These can be kept in an XML file or they can be extracted and incorporated into the metadata documentation that will accompany the deposit.
+
+__GeoTIFFs__
+
+GeoTIFFS are used to store all orthorectified images (plans and sections) that result from close-range photogrammetry procedures. These images can be archived as-is. 
+
+It should be noted that in this case also, care should be directed towards maintaining all intermediate information (such as the individual photos that are used to create each photomosaic and the original coordinate measurements). Unfortunately, for this specific class of material no such information has been preserved. The reasons were two-fold. First, the orthorectification process, once completed, results in a certain product (the orthorectified image) that is an entity in itself and provides the base material for a number of other products, such as the DTM grids and the drawings made on site. All intermediate files that resulted in this photo would not be used again, as this would mean that a possible change in the initial orthorectified image would certainly affect all derived data that are currently held in the database and provide the basis for interpretation of the excavation information. In this sense, the creation of each photomosaic is a computer assisted interpretation that has to be acknowledged and maintained as-is for consistency and economy reasons.
+
+__GRIDS__
+
+Grids have been used in the project to create surfaces for the 2.5D depiction of every orthorectified photo and provide height values for 3D drawings. ESRI Grids can be converted into GeoTIFFs through Arctoolbox. These can be viewed in ArcScene and used to provide height values, in order to depict the orthorectified GeoTIFFs. It seems then that GeoTIFF may provide a sound long term preservation format for grids. Conversion and preservation of grids into ASCII is not recommended. Exporting into ASCII from Arctoolbox transforms all values into integers. As a result, when re-converted into grids to be used in ArcGIS, all decimal values are rounded into the closest integer value resulting in loss of information and obviously at the excavation level decimal height differentiation is important. There is the possibility to save grids with decimal values into a format that supports float values (FLT). Its reconversion manages to keep original information. However, this is another ArcGIS native format that cannot guarantee long-term stability.
+
+A further consideration relates to the fact that grids are secondary products. They are derived through interpolation procedures that employ initial height measurements (kept as points shapefiles) and breaklines (kept as polyline shapefiles) that limit interpolation within areas of relatively uniform variation. A good recommendation would be to keep all intermediate files, as different interpolation methods in the future may be able to produce more accurate results. This has been a concern since the beginning of the project and all intermediate files that have led to the production of each grid have been maintained as shapefiles.
+
+__TINS__
+
+TINS in this dataset are only used to provide an (almost) vertical surface for the depiction of the stratigraphic pictures (either georeferenced orthophotos or scanned drawings) stored as GeoTIFF files. They were chosen because they can be visualized a lot easier (smaller files, vector structure) and because in this case they represent a low-variation surface. However, they do not comprise a standard format (they are a native ESRI format), so their preservation has to acknowledge potential migration difficulties. It is suggested that they should be transformed into more stable raster formats. However, the important thing to note about TINs is that they effectively keep the height values at the location of the original input points (exact triangulation). Their conversion into raster format is possible to lose height precision at the original collection points depending on the conversion algorithm. In our case this is not a problem, since they represent flat and almost vertical surfaces. So, they can be converted into the ESRI GRID format for preservation purposes. However, it should be noted that this solution should be preferred on a case by case basis and after a careful examination of the available conversion algorithms. Otherwise, a better solution would be to create DTMs using the original points (original height data) through the use of exact interpolation methods (i.e. Inverse Distance Weighting - IDW). 
+
+__Projection file__
+
+The excavation of Paliambela Kolindros uses the HATT projection. This is based on the Azimuthal Equidistant projection that has as a base point the Athens Observatory (23o42'58" Lo = .815). Originally it was used by the French army in hydrographic surveys in island areas. It was adopted in Greece mainly from Hellenic Military Geographical Service in the systematic mapping of the Greek territory in scale 1:5.000. This system divides Greece in 130 spheroids tables with a size of 30'x30'. Each trapezoid has its own coordinate system, which is based on a point in the center of the trapezium (T0). This point provides the center at each sheet of paper and is identified as the point of contact between the reference plane and the ellipsoid of the Earth. 
+
+This projection has the advantage of negligible distortion of distances, angles and areas within the same sheet of paper. However, the deformations increase as we move away from the center of the sheet. In other words, the HATT projection system is very reliable at the local level (large scale), but in larger areas (small scale) there can be distortions due to the complex processes to correlate every map sheet. 
+
+;:Projection: HATT
+;:GeoGCS: GCS Bessel 1841
+;:Datum: GR-D (Athens)
+;:Spheroid Bessel 1841: 6377397.155, 299.1528128
+;:Prime Meridian Athens: 23.7163375
+;:Unit Degree: 0.0174532925199433
+;:Projection: Azimuthal Equidistant
+;:False Easting/ Northing: 0.0/0.0
+;:Central Meridian: 22.4598025
+;:Latitude of Origin: 40.75
+;:Unit: (Meter) 1.0
+
+The adoption of HATT cannot handle the integration of data into a single platform for the whole of Greece, an issue that has led to its gradual replacement by the Greek Grid 87 (GG87) system, which is the current official Greek projection having solved the previous problem. In ArcGIS HATT obviously does not exist, having been replaced by the GG87. To avoid manual conversion of thousands of measurements from HATT to GG87 it was decided to create a custom HATT projection in ArcGIS. All resulting objects can be reprojected into GG87 once the excavation is finished, while automated ways may be used to convert all original measurements. For this reason, the additional preservation of the projection file is regarded as very important in this case.  
+
+__Pictures__
+All pictures of finds, pottery, excavation units were kept externally and were connected to the database through hyperlinks that pointed to their storage path (stored in BLOB fields). All pictures related to the dataset were in different formats (JPGS). These were converted into TIFFS for preservation using the Xnview conversion function. Obviously unless they are stored in exactly the same directory (path) they cannot be accessed through the tables from within ARCGIS.
+
+__Snapshots or videos__
+
+An interesting idea would be to provide a set of snapshots of the database that could give a quick idea to a potential user of the database about the look and feel of the data when visualised in 3D. ArcScene provides tools for exporting snapshots as images and creating fly-throughs that are stored as videos. In both cases, these should be documented following the appropriate procedures used for typical material of this kind. 
+
+Any supplementing information to be included is related to the view angle and distance to target, position of viewer and/or target, illumination parameters, extent of view, shading modes, optical classification methods, use of transparency and possible definition queries that limit the view of the dataset to specific objects. 
+Snapshots can be exported from ArcScene as photos using a number of available formats (EMF, EPS, AI, TIF, JPG, PDF, SVG, BMP, PNG, GIF) (Fig.10). Of course none of the above parameters are kept and should be recorded manually before exporting the image.
+
+In the case of animations, most parameters related with the view (projection type, target, azimuth, inclination, roll, distance, view angle, orthoextent) are kept for each recorded frame within the native format for storing animation in ArcScene, ArcScene Animation File (.asa). This is a filetype that can be opened, viewed and edited only in ArcScene. There is the possibility to export the animation to Audio Video Interleave (.avi) or QuickTime Movie (.mov) format bearing in mind that most of these metadata are lost. ASA metadata cannot be exported as list or pasted to a document, allowing only for the option of using a screen capture (Fig.11).
+
+```{figure} /images/10.png
+:alt: Figure 10
+
+__Figure 10:__ Extracting a snapshot from ArcScene as a jpeg.
+```
+
+```{figure} /images/11.png
+:alt: Figure 11
+
+__Figure 11:__ Metadata for each frame of an animation created within ArcScene using the ''Animation manager'' from the ''Animation'' toolbar.
+```
+
+Another interesting option would be to export a 3D scene in VRML (.wrp). VRML files can be opened in various programs, such as Blender and MeshLab. However, it seems that although the different geometry types are properly maintained in VRML format, not all programs can import the full geometric information contained. For example, Blender managed to import all vector information, while MeshLab could only import multipatch and surface data (Fig.12,13) Obviously, raster information is not supported in the resulting exported VRML file.
+
+```{figure} /images/12.png
+:alt: Figure 12
+
+__Figure 12:__ Sample data exported as .wrl and imported in Blender. Only raster data did not import.
+```
+
+```{figure} /images/13.png
+:alt: Figure 13
+
+__Figure 13:__ Sample data exported as .wrl and imported to be viewed in Meshlab. Raster, line and point data did not import.
+```
+
+VRML files can be easily saved in different formats from these programs, such as OBJ files (.obj), allowing their potential incorporation in a 3DPDF file, which would allow quick viewing and exploration of a given dataset and would remove the additional effort of storing the animation parameters, which are case-specific to the actual animation produced. The obvious disadvantage in this case would be the loss of raster information (as in the case of the plan and section orthophotomosaics). 
+
+## 6 Conclusion
+
+On the whole, this exercise in exploring the best possible ways to archive complex GIS applications that employ the GDB format has provided with some interesting insights and revealed certain weaknesses evident in the ESRI’s ArcGIS products. The constant update of ESRI’s software has implications on the development of the supported formats and frequently results in versioning problems that are under-documented. In our case, the interoperability functions supported failed to perform well when complex data types and relationships are involved. There was also a marked problem in the lack of support for earlier software/format versions that rendered most attempts to migrate into fGDBs as problematic. The strategy of breaking up the GDB into individual components and giving emphasis on the documentation of the data structure (with the supplementary maintenance of the data schema in XML or fGDB) seems to provide a safer route to GIS data preservation and dissemination. Without a doubt such an approach is not without problems. However, it provides a really important advantage. Once the information is kept in stable formats and is documented properly, it can be used according to the needs and software availability of the potential user, either as a whole or in parts.
+
+
+
+[^1]: “Spatial databases play a prominent role in geospatial data production and management, storing a range of data types including geographic features, attribute information, satellite and aerial imagery, surface modeling data, and survey measurements. In addition to storing data, they can also model the relationships between data, handle data validation, and support complex data models, versioning, and multi-user editing, all of which greatly improve data integrity and analysis capabilities” (GeoMapp 2011a:1)[@geomapp2011a, 1].
+[^2]: The field ''case/total'' records the number of objects included in the study in relation to the total amount of objects held per object or feature class in the original pGDB.
+[^3]: [http://www.geomapp.net/default.htm]
+[^4]: Otherwise, the process implicates the export of multiple feature classes contained in a GDB into a new GDB and the successive import of multiple object classes from the old GDB. However, all relationship classes have to by manually recreated, as at present there is no conversion option from within ArcCatalog.
+[^5]: Due to pGDBs storage limitations, raster data (images and DTMs) are stored externally and linked to the database through appropriate naming conventions and hyperlinks. 
+[^6]: These were originally modeled as stereotypes in the original pGDB data model held in MS VISIO. In the past using ArcGIS 9.1 they have been included successfully in the resulting XML workspace document (i.e. XML translation of the data model).
+[^7]: It has to be noted that this process requires considerable amount of documentation, since all structure of the database is lost and has to be recreated on metadata level.
+[^8]: For a specification of the multipatch geometry data type see Ford [@ford2007].
+
+
+# Bibliography
+
+ESRI (1998) *ESRI Shapefile Technical Description*. An ESRI White Paper. [http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf
+
+ESRI (2008) *XML Schema of the Geodatabase*. An ESRI Technical Paper. http://downloads.esri.com/support/whitepapers/ao_/XML_Schema_of_Geodatabase.pdf
+
+Essic, J.  (2011) *Safe to Save? Archive Options for Geodatabases*, ESRI International Users Conference, 13/7/2011
+
+Essic, J. & Sumner , M. (2009) *Are Geodatabases a Suitable Long-Term Archival Format?* ESRI International Users Conference, 14/7/2009 
+
+Ford, A., (2007) 'Visualizing Integrated Three-Dimensional Datasets. Modeling data in the geodatabase using multipatch features'. *ArcUser*, January–March 2007, 15-9.
+
+Geospatial Multistate Archive and Preservation Partnership (GeoMAPP) (2011a) *Archival Challenges Associated with the ESRI Personal Geodatabase and File Geodatabase Formats*. http://www.geomapp.net/docs/Geodatabase_Report_v1.0_final_20111206.pdf
+
+Geospatial Multistate Archive and Preservation Partnership (GeoMAPP) (2011b) *Best Practices for Geospatial Data Transfer for Digital Preservation*. Report version: 1.0 (final) http://www.geomapp.net/docs/Geo_Data_Transfer_BestPractices_v1.0_final_20111201.pdf
+
+Katsianis, M. (2012) 'Conceptual and Practical Issues in the Use of GIS for Archaeological Excavations'. In Chrysanthi, A., Flores, M. P. & Papadopoulos, C. (eds.) *Thinking Beyond the Tool: Archaeological Computing & the Interpretive Process*. BAR International Series, Oxford: Archaeopress, 51-71.
+
+Katsianis, M., Tsipidis, S., Kotsakis, K. & Koussoulakou, A. (2008) 'A 3D Digital Workflow for Archaeological Intra-site Research Using GIS'. *Journal of Archaeological Science*, 35 (3), 655-667
+
+McGarva, G., Morris, S. & Janée, G. (2009) *Technology Watch Report: Preserving Geospatial Data*. DPC Technology Watch Series Report 09-01. http://www.dpconline.org/component/docman/doc_download/363-preserving-geospatial-data-by-guy-mcgarva-steve-morris-and-gred-greg-janee
+
+Mugnier, C. (2002) 'Grids and Datums: The Hellenic republic'. *Photogrammetric Engineering and Remote Sensing*, December 2002, 1237-1238 http://www.asprs.org/a/resources/grids/12-2002-hellenic.pdf

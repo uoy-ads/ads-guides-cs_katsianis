@@ -1,0 +1,29 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  banner: ads_logo.png
+  title: "Preparing the Paliambela Kolindros Archaeological Project digital archive for long term preservation"
+  subtitle: Archaeology Data Service, 2012
+  description: 
+  keywords:
+    - archaeology
+    - digital preservation
+    - GIS
+  authors:
+    - name: Markos Katsianis
+      orcid: https://orcid.org/0000-0002-0585-3526
+      affiliations: Aristotle University of Thessaloniki
+  license: CC-BY-4.0
+  open_access: true
+  doi: https://doi.org/10.5284/h49g-c944
+  github: uoy-ads/ads-guides-cs_katsianis
+  toc:
+    - file: index.md
+site:
+  template: book-theme
+  options:
+    favicon: images/g2gp_signpost.png
+    logo: images/g2gp_signpost.png
+    logo_text: Guides to Good Practice
+  parts:
+    footer: footer.md
